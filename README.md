@@ -22,3 +22,13 @@ For our course the students will also have to run the following commands inside 
 `export SPARK_HOME=$VIRTUAL_ENV/lib/python3.6/site-packages/pyspark`
 
 The problem is if a student has different python version than 3.6, they would have to find their own python version and modify the command. Using Python with windows or mac might also require different commands.
+
+# Running notebooks with docker
+
+Students don't need to install any Python dependencies if they use Docker images. Folder `dockertest` contains a Dockerfile for jupyter notebook and pyspark. When inside `dockertest`folder:
+
+Run `docker build -t jupyter .` to create a docker image called `jupyter`
+
+Run `docker run -p 8888:8888 -v $(pwd):/work jupyter` to run the docker image and reflect the changes on your directory.
+
+The docker image can possibly be released in dockerhub so that students only have to use the `docker run` command.
