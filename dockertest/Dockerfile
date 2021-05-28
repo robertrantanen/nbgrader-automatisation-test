@@ -2,6 +2,9 @@ From jupyter/pyspark-notebook:5197709e9f23
 
 USER root
 
+RUN pip3 install graphframes && \
+wget http://repos.spark-packages.org/graphframes/graphframes/0.8.0-spark3.0-s_2.12/graphframes-0.8.0-spark3.0-s_2.12.jar -qO $SPARK_HOME/jars/graphframes.jar
+
 RUN pip3 install nbgrader && \
 jupyter nbextension install --sys-prefix --py nbgrader --overwrite && \
 jupyter nbextension enable --sys-prefix --py nbgrader && \
