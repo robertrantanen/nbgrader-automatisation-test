@@ -31,4 +31,6 @@ Run `docker build -t jupyter .` to create a docker image called `jupyter`
 
 Run `docker run -p 8888:8888 -v $(pwd):/work jupyter` to run the docker image and reflect the changes on your directory.
 
+The notebook doesn't open automatically, you have to click a link in the terminal that looks like http://127.0.0.1:8888/?token=xxxxx.
+
 The docker image can possibly be released in dockerhub so that students only have to use the `docker run` command.
