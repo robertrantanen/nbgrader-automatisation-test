@@ -17,6 +17,16 @@ jupyter serverextension disable --sys-prefix nbgrader.server_extensions.formgrad
 jupyter nbextension disable --sys-prefix course_list/main --section=tree && \
 jupyter serverextension disable --sys-prefix nbgrader.server_extensions.course_list
 
+RUN apt-get -y update && apt-get -y install git
+
+RUN git clone https://github.com/robertrantanen/jupyter_submit_extension
+
+RUN jupyter nbextension install jupyter_submit_extension --user
+
+RUN jupyter nbextension enable jupyter_submit_extension/main
+
+RUN rm -rf jupyter_submit_extension
+
 COPY . /work
 
 WORKDIR /work
